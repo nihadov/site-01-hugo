@@ -1,30 +1,20 @@
-baseURL = "/"
+baseURL = "https://www.dubaicalligrapher.com"
 languageCode = "en-us"
 title = "Dubai Calligrapher Directory"
-# theme = ""
-disableKinds = ["taxonomy", "term"]
+theme = []
 
 [params]
-  description = "A curated, verified reference directory of UAE-based Arabic calligraphers with reliable public contact links."
-  accent_color = "#2c3e50"
-  formspree_endpoint = "https://formspree.io/f/mnjnnzov"
+    description = "A curated editorial directory and professional reference for Arabic calligraphers in the UAE."
+    author = "Editorial Board"
+    accent = "#000000"
 
 [taxonomies]
-  emirate_or_city = "emirates"
-  specialty_type = "specialties"
-  scripts_tag = "scripts"
+    emirate = "emirates"
+    script = "scripts"
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[permalinks]
+    calligraphers = "/calligraphers/:slug/"
+    arabic-scripts = "/arabic-scripts/:slug/"
 
-[outputFormats]
-  [outputFormats.SearchIndex]
-    mediaType = "application/json"
-    baseName = "search"
-    isPlainText = true
-    notAlternative = true
-
-[outputs]
-  home = ["HTML", "RSS"]
+[markup.goldmark.renderer]
+    unsafe = true # Required for static forms in Markdown
