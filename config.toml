@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Dubai Calligrapher Directory"
 # theme = ""
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "A curated, verified reference directory of UAE-based Arabic calligraphers with reliable public contact links."
@@ -27,4 +27,4 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     notAlternative = true
 
 [outputs]
-  home = ["HTML", "RSS", "SearchIndex"]
+  home = ["HTML", "RSS"]
