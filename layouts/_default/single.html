@@ -1,10 +1,37 @@
 {{ define "main" }}
-<article class="container">
-    <header class="page-header">
+<div class="profile-layout">
+    <aside class="profile-sidebar">
+        <div style="background:#eee; aspect-ratio:3/4; width:100%; display:flex; align-items:center; justify-content:center; color:#999;">Portrait</div>
+        <div class="facts-box">
+            <span class="facts-label">Emirate</span>{{ .Params.emirate }}
+            <span class="facts-label">Specialty</span>{{ .Params.specialty }}
+            <span class="facts-label">Scripts</span>{{ range .Params.scripts }}{{ . }} {{ end }}
+            <span class="facts-label">Best Suited For</span>{{ .Params.suited_for }}
+        </div>
+    </aside>
+    <article class="profile-main">
+        <nav style="margin-bottom: 2rem;"><a href="/calligraphers/" style="color:#777; text-decoration:none;">&larr; Back to Directory</a></nav>
         <h1>{{ .Title }}</h1>
-    </header>
-    <div class="content">
-        {{ .Content }}
-    </div>
-</article>
+        <div class="editorial-content">
+            {{ .Content }}
+        </div>
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid var(--border);">
+        <h2>When to work with {{ .Title }}</h2>
+        <p>{{ .Params.working_context }}</p>
+        <div style="margin-top: 3rem;">
+            <a href="{{ .Params.website }}" target="_blank" class="site-title" style="font-size: 1.2rem;">Official Artist Website &rarr;</a>
+        </div>
+    </article>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "{{ .Title }}",
+  "jobTitle": "Calligrapher",
+  "url": "{{ .Permalink }}",
+  "address": { "@type": "PostalAddress", "addressLocality": "{{ .Params.emirate }}", "addressCountry": "UAE" }
+}
+</script>
 {{ end }}
