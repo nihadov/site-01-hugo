@@ -5,62 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/main.css">
-    
-    <!-- Pagefind -->
-    <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
-    <script src="/_pagefind/pagefind-ui.js"></script>
-
-    {{ block "head" . }}{{ end }}
+    <link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <nav class="main-nav">
-                <a href="/" class="logo">{{ .Site.Title }}</a>
-                <ul class="nav-links">
-                    <li><a href="/calligraphers/">Directory</a></li>
-                    <li><a href="/calligraphers/featured/">Featured</a></li>
-                    <li><a href="/arabic-scripts/">Scripts</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                </ul>
+    <div class="container">
+        <header>
+            <a href="/" class="site-title">Dubai Calligrapher</a>
+            <nav>
+                <a href="/calligraphers/">Directory</a>
+                <a href="/arabic-scripts/">Scripts</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
             </nav>
-        </div>
-    </header>
-
-    <main>
-        {{ block "main" . }}{{ end }}
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h3>{{ .Site.Title }}</h3>
-                    <p>{{ .Site.Params.description }}</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/calligraphers/submit/">Suggest a Calligrapher</a></li>
-                        <li><a href="/editorial-policy/">Editorial Policy</a></li>
-                        <li><a href="/privacy/">Privacy Policy</a></li>
-                        <li><a href="/disclaimer/">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </header>
+        <main>
+            {{ block "main" . }}{{ end }}
+        </main>
+        <footer>
+            <p>&copy; {{ now.Format "2006" }} Dubai Calligrapher Directory. A professional reference platform.</p>
+            <nav>
+                <a href="/editorial-policy/">Editorial Policy</a>
+                <a href="/legal/">Legal</a>
+            </nav>
+        </footer>
+    </div>
 </body>
 </html>
