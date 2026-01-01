@@ -1,0 +1,53 @@
+{{ define "main" }}
+<section class="hero">
+    <div class="container">
+        <h1>{{ .Site.Title }}</h1>
+        <p class="intro">{{ .Site.Params.description }}</p>
+        <div class="cta-group">
+            <a href="/calligraphers/" class="btn btn-primary">Browse Directory</a>
+            <a href="/calligraphers/submit/" class="btn btn-secondary">Suggest a Calligrapher</a>
+        </div>
+    </div>
+</section>
+
+<section class="featured-section">
+    <div class="container">
+        <h2 class="section-title">Featured Calligraphers</h2>
+        <div class="grid">
+            {{ range (where .Site.RegularPages "Section" "calligraphers") | first 6 }}
+            <div class="card">
+                <img src="/img/placeholder-portrait.jpg" alt="Portrait of {{ .Title }}, UAE-based Arabic calligrapher" class="card-img" loading="lazy" width="400" height="400">
+                <h3>{{ .Title }}</h3>
+                <p class="meta">{{ .Params.base }} &bull; {{ .Params.specialty }}</p>
+                <div class="card-footer">
+                    <a href="{{ .RelPermalink }}" class="btn btn-secondary">View Profile</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<section class="scripts-quick-links">
+    <div class="container">
+        <h2 class="section-title">Explore Arabic Scripts</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Classical vs Digital</h3>
+                <p>Understanding the evolution of Arabic calligraphy in the modern age.</p>
+                <a href="/arabic-scripts/classical-vs-digital/">Read More &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Thuluth</h3>
+                <p>The "King of Scripts," known for its elegance and complexity.</p>
+                <a href="/arabic-scripts/thuluth/">Read More &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Diwani</h3>
+                <p>A decorative and cursive style developed during the Ottoman era.</p>
+                <a href="/arabic-scripts/diwani/">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

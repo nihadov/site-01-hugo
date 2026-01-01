@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-header">
+        <h1>Featured Calligraphers</h1>
+        <p>A selection of prominent Arabic calligraphers making a significant impact in the UAE.</p>
+    </header>
+
+    <div class="grid">
+        {{ range where .Site.RegularPages "Params.featured" true }}
+        <div class="card featured-card">
+            <img src="/img/placeholder-work.jpg" alt="{{ .Title }} Arabic calligraphy artwork, featured work" class="card-img" loading="lazy" width="600" height="400">
+            <div class="card-content">
+                <h3>{{ .Title }}</h3>
+                <p class="meta">{{ .Params.base }}</p>
+                <p class="bio-snippet">{{ .Summary | truncate 150 }}</p>
+                <div class="card-footer">
+                    <a href="{{ .RelPermalink }}" class="btn btn-secondary">View Profile</a>
+                    <a href="{{ .Params.contact }}" class="btn btn-primary" target="_blank" rel="noopener">Contact</a>
+                    {{ if eq .Title "Nihad Taisir Nadam" }}
+                    <a href="https://nihad.me/contact-me/" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top: 0.5rem; display: block; text-align: center;">Request a Commission</a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,66 @@
+{{ define "main" }}
+<article class="container" data-pagefind-body>
+    <div class="profile-header">
+        <div class="profile-image">
+            <img src="/img/placeholder-portrait.jpg" alt="Portrait of {{ .Title }}, UAE-based Arabic calligrapher" class="profile-portrait" loading="lazy" width="600" height="600">
+        </div>
+        <div class="profile-info">
+            <h1>{{ .Title }}</h1>
+            <div class="tags">
+                <span class="tag">Base: {{ .Params.base }}</span>
+                <span class="tag">Specialty: {{ .Params.specialty }}</span>
+            </div>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            <div class="tags">
+                <strong>Scripts:</strong>
+                {{ range .Params.scripts }}
+                <span class="tag">{{ . }}</span>
+                {{ end }}
+            </div>
+            
+            <div class="tags">
+                <strong>Languages:</strong>
+                {{ range .Params.languages }}
+                <span class="tag">{{ . }}</span>
+                {{ end }}
+            </div>
+
+            <div class="contact-block">
+                <h3>Contact Information</h3>
+                <p>Connect with {{ .Title }} through their official channels:</p>
+                <div class="cta-group" style="justify-content: flex-start; margin-top: 1rem;">
+                    <a href="{{ .Params.website }}" class="btn btn-secondary" target="_blank" rel="noopener">Website</a>
+                    <a href="{{ .Params.contact }}" class="btn btn-primary" target="_blank" rel="noopener">Contact Page</a>
+                    {{ if eq .Title "Nihad Taisir Nadam" }}
+                    <a href="https://nihad.me/contact-me/" class="btn btn-primary" target="_blank" rel="noopener">Request a Commission</a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="featured-works">
+        <h2>Featured Works</h2>
+        <div class="works-grid">
+            <img src="/img/placeholder-work.jpg" alt="{{ .Title }} Arabic calligraphy artwork, featured work" loading="lazy" width="500" height="500">
+            <img src="/img/placeholder-work.jpg" alt="{{ .Title }} Arabic calligraphy artwork, featured work" loading="lazy" width="500" height="500">
+            <img src="/img/placeholder-work.jpg" alt="{{ .Title }} Arabic calligraphy artwork, featured work" loading="lazy" width="500" height="500">
+        </div>
+    </section>
+
+    <section class="verification">
+        <h2>Verification & Sources</h2>
+        <div class="verification-content">
+            <p><strong>Proof Notes:</strong> {{ .Params.proof_notes }}</p>
+            <ul>
+                {{ range .Params.sources }}
+                <li><a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </section>
+</article>
+{{ end }}

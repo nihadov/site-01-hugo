@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-header">
+        <h1>Calligrapher Directory</h1>
+        <p>Browse our curated list of verified Arabic calligraphers based in the UAE.</p>
+        <div class="search-link">
+            <a href="/calligraphers/search/" class="btn btn-secondary">Search Directory</a>
+        </div>
+    </header>
+
+    <div class="grid" data-pagefind-body>
+        {{ range .Paginator.Pages }}
+        <div class="card">
+            <img src="/img/placeholder-portrait.jpg" alt="Portrait of {{ .Title }}, UAE-based Arabic calligrapher" class="card-img" loading="lazy" width="400" height="400">
+            <h3>{{ .Title }}</h3>
+            <p class="meta">{{ .Params.base }} &bull; {{ .Params.specialty }}</p>
+            <div class="card-footer">
+                <a href="{{ .RelPermalink }}" class="btn btn-secondary">View Profile</a>
+                <a href="{{ .Params.contact }}" class="btn btn-primary" target="_blank" rel="noopener">Contact</a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

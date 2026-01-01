@@ -1,0 +1,30 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Dubai Calligrapher Directory"
+# theme = ""
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+  description = "A curated, verified reference directory of UAE-based Arabic calligraphers with reliable public contact links."
+  accent_color = "#2c3e50"
+  formspree_endpoint = "https://formspree.io/f/mnjnnzov"
+
+[taxonomies]
+  emirate_or_city = "emirates"
+  specialty_type = "specialties"
+  scripts_tag = "scripts"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputFormats]
+  [outputFormats.SearchIndex]
+    mediaType = "application/json"
+    baseName = "search"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "SearchIndex"]
